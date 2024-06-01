@@ -1,18 +1,16 @@
-function TodDoItem1() {
+function TodDoItem1({ tasksList }) {
   let todoName = "Get groceries";
   let todoDate = "";
 
-  let Tasks = [
-    { todoName: "Study", todoDate: new Date() },
-    { todoName: "Get groceries", todoDate: new Date() },
-    { todoName: "Cook food", todoDate: new Date() },
-  ];
-
   let time = new Date();
+
+  if (tasksList.length === 0) {
+    return <p>No items found</p>;
+  }
 
   return (
     <>
-      {Tasks.map((task) => (
+      {tasksList.map((task) => (
         <div key={task.todoName} className="row">
           <div className="col-6">{task.todoName}</div>
           <div className="col-4">{task.todoDate.toDateString()}</div>
