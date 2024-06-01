@@ -4,6 +4,7 @@ function TodDoItem1({ tasksList }) {
 
   let time = new Date();
 
+  // This is where importance of Typescript is understood !
   if (tasksList.length === 0) {
     return <p>No items found</p>;
   }

@@ -3,3 +3,24 @@
     margin: 1em 0 1em 0;
   }
 }
+
+.alert-box{
+    width: 400px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: silver;
+    padding: 10px;
+    z-index: 999;
+    display: block;
+    position: fixed;
+    top: 2em;
+    right: 2em;
+}
+
+.close {
+  position: absolute;
+    top: 0;
+    right: 1em;
+    display: block;
+    cursor: pointer;
+}
