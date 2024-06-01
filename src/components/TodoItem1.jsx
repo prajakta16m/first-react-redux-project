@@ -13,7 +13,7 @@ function TodDoItem1() {
   return (
     <>
       {Tasks.map((task) => (
-        <div className="row">
+        <div key={task.todoName} className="row">
           <div className="col-6">{task.todoName}</div>
           <div className="col-4">{task.todoDate.toDateString()}</div>
           <div className="col-2">
