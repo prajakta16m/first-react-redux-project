@@ -1,15 +1,18 @@
+import { Button } from "bootstrap";
 import PButton from "./PButton";
+import AppName from "./components/AppName";
+import AddToDo from "./components/AddToDo";
+import TodDoItem1 from "./components/TodoItem1";
 
-function App(){
+function App() {
+  return (
+    <center class="todo-container">
+      <AppName></AppName>
 
-  return <div>
-  <h1>
-      Hello World
-    </h1>
-    <PButton></PButton>
-  </div>
-  
-  
+      <AddToDo></AddToDo>
+      <TodDoItem1></TodDoItem1>
+    </center>
+  );
 }
 
 export default App;
