@@ -13,14 +13,15 @@ function App() {
   ];
   //Tasks = [];
 
+  function onAddItem(item) {
+    alert(item.name);
+  }
+
   return (
     <center className="todo-container">
       <AppName></AppName>
-
-      <AddToDo></AddToDo>
+      <AddToDo onAdd={onAddItem}></AddToDo>
       <TodDoItem1 tasksList={Tasks}></TodDoItem1>
-
-      <AlertModal>This is alert</AlertModal>
     </center>
   );
 }
