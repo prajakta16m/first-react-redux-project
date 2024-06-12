@@ -4,6 +4,8 @@ import AppName from "./components/AppName";
 import AddToDo from "./components/AddToDo";
 import TodDoItem1 from "./components/TodoItem1";
 import AlertModal from "./components/Alert";
+import { Task } from "./classes/Task";
+import { useState } from "react";
 
 function App() {
   let Tasks = [
@@ -11,17 +13,20 @@ function App() {
     { todoName: "Get groceries", todoDate: new Date() },
     { todoName: "Cook food", todoDate: new Date() },
   ];
-  //Tasks = [];
+
+  let [TasksList, setTasksList] = useState([]);
+  setTasksList(tasks);
 
   function onAddItem(item) {
-    alert(item.name);
+    //alert(item.name);
+    setTasksList(tasks.push);
   }
 
   return (
     <center className="todo-container">
       <AppName></AppName>
       <AddToDo onAdd={onAddItem}></AddToDo>
-      <TodDoItem1 tasksList={Tasks}></TodDoItem1>
+      <TodDoItem1 tasksList={TasksList}></TodDoItem1>
     </center>
   );
 }
