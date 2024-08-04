@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function AddToDo({ onAdd }) {
   const [nameVal, setNameVal] = useState("prajakta");
-  const [taskDate, setNewDate] = useState(undefined);
+  const [taskDate, setNewDate] = useState(new Date());
 
   function addItem() {
     // alert("add works");
@@ -27,7 +27,6 @@ function AddToDo({ onAdd }) {
       <div className="col-4">
         <input
           type="date"
-          value={taskDate}
           onChange={(d) => {
             setNewDate(d.target.value);
           }}

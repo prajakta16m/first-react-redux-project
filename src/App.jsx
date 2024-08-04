@@ -15,18 +15,31 @@ function App() {
   ];
 
   let [TasksList, setTasksList] = useState([]);
-  setTasksList(tasks);
+
+  let [myname, setMyname] = useState("Prajakta");
 
   function onAddItem(item) {
-    //alert(item.name);
-    setTasksList(tasks.push);
+    setTasksList([...TasksList, item]);
+    console.log("TaskList = ", TasksList);
+    setMyname("xyz");
   }
+
+  let onRemoveItem = (item) => {
+    console.log(TasksList);
+
+    setTasksList((TasksList) => TasksList.splice(TasksList.indexOf(item), 1));
+    console.log("TaskList = ", TasksList);
+  };
 
   return (
     <center className="todo-container">
       <AppName></AppName>
       <AddToDo onAdd={onAddItem}></AddToDo>
-      <TodDoItem1 tasksList={TasksList}></TodDoItem1>
+      <TodDoItem1
+        tasksList={TasksList}
+        myname={myname}
+        onRemoveItem={onRemoveItem}
+      ></TodDoItem1>
     </center>
   );
 }

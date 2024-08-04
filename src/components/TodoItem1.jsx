@@ -1,6 +1,7 @@
 import styles from "./TodoItem1.module.css";
+import { Task } from "../classes/Task";
 
-function TodDoItem1({ tasksList }) {
+function TodDoItem1({ tasksList, myname, onRemoveItem }) {
   let todoName = "Get groceries";
   let todoDate = "";
 
@@ -11,19 +12,34 @@ function TodDoItem1({ tasksList }) {
     return <p>No items found</p>;
   }
 
+  function deleteTask(item) {
+    console.log(item);
+    onRemoveItem(item);
+  }
+
   return (
     <>
-      {tasksList.map((task) => (
-        <div key={task.todoName} className={`row ${styles.row_custom}`}>
-          <div className="col-6">{task.todoName}</div>
-          <div className="col-4">{task.todoDate.toDateString()}</div>
-          <div className="col-2">
-            <button type="button" className="btn btn-danger">
-              Delete
-            </button>
+      {" "}
+      <p>{myname}</p>
+      <p>{tasksList.length}</p>
+      {tasksList.length > 0 &&
+        tasksList.map((task) => (
+          <div key={task.name} className={`row ${styles.row_custom}`}>
+            <div className="col-6">{task.name}</div>
+            <div className="col-4">{task.date}</div>
+            <div className="col-2">
+              <button
+                type="button"
+                className="btn btn-danger"
+                onClick={() => {
+                  deleteTask(task);
+                }}
+              >
+                Delete
+              </button>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
     </>
   );
 }
